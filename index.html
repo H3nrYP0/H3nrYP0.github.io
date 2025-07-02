@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream</title>
+    <link rel="icon" type="image/png" href="img/Logo Minimalista Vestimenta y Joyería .png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --beige-claro: #f5f5f0;
+            --beige-medio: #e8e8e0;
+            --beige-oscuro: #d8d2c8;
+            --azul-profesional: #4a6fa5;
+            --dorado-profesional: #c0a062;
+            --blanco: #fff;
+            --gris-claro: #f8f8f8;
+            --texto-oscuro: #555;
+            --texto-muy-oscuro: #333;
+        }
+        
+        /* Estilos generales */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            color: var(--texto-oscuro);
+            background-color: var(--beige-claro);
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            width: 85%;
+            margin: auto;
+            overflow: hidden;
+            max-width: 1200px;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--texto-muy-oscuro);
+        }
+        
+        /* Navegación */
+        nav {
+            background: var(--blanco);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            background-color: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+        }
+        .logoDream{
+            width: 100px;
+            height: 100px;
+             margin-right: 20px;
+            margin-left: 20px; /* Desplazamiento base */
+            transform: translateX(20px); /* Ajuste fino adicional hacia la derecha */
+            height: auto;
+            margin-right: 20px;
+        }
+        
+        nav .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 20px;
+            margin-left: 20px; /* Desplazamiento base */
+            transform: translateX(20px); /* Ajuste fino adicional hacia la derecha */
+            width: 50px;
+            height: auto;
+            margin-right: 20px;
+        }
+        
+
+        
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-grow: 1;
+        }
+        
+        nav ul li {
+            margin: 0 12px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--texto-muy-oscuro);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--azul-profesional);
+            color: var(--blanco);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(74, 111, 165, 0.3);
+        }
+        
+        nav ul li a i {
+            margin-right: 5px;
+        }
+        
+        /* Carrusel de imágenes mejorado */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            display: block;
+        }
+        
+        .slides {
+            display: flex;
+            width: 800%;
+            height: 100%;
+            transition: transform 1s ease-in-out;
+        }
+        
+        .slide {
+            width: 12.5%;
+            height: 100%;
+            flex-shrink: 0;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .author-img {
+            height: 200px;
+        }
+        
+        /* Encabezado */
+        header {
+            position: relative;
+            overflow: hidden;
+            height: 500px;
+        }
+        
+        /* Contenido principal */
+        .main-content {
+            padding: 50px 0;
+        }
+        
+        .post {
+            margin-bottom: 50px;
+            text-align: center;
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .post:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .post::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--azul-profesional), var(--dorado-profesional));
+        }
+        
+        .post h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            color: var(--texto-muy-oscuro);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .post h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--azul-profesional);
+            border-radius: 3px;
+        }
+        
+        .post p {
+            margin-bottom: 25px;
+            color: var(--texto-oscuro);
+            font-size: 1.05em;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--azul-profesional), var(--dorado-profesional));
+            color: var(--blanco);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(74, 111, 165, 0.3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(74, 111, 165, 0.4);
+            background: linear-gradient(to right, var(--dorado-profesional), var(--azul-profesional));
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        /* Sección "About Us" */
+        .about-section {
+            padding: 70px 0;
+            background: var(--gris-claro);
+            display: none;
+            position: relative;
+        }
+        
+        .about-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(to right, var(--azul-profesional), var(--dorado-profesional), var(--azul-profesional));
+            opacity: 0.7;
+        }
+        
+        .about-section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            position: relative;
+        }
+        
+        .about-section h2::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--azul-profesional);
+            border-radius: 2px;
+        }
+        
+        .authors {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .author {
+            background: var(--blanco);
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .author:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .author::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--azul-profesional), var(--dorado-profesional));
+        }
+        
+        .author h3 {
+            color: var(--texto-muy-oscuro);
+            margin: 20px 0 15px;
+            font-size: 1.5em;
+        }
+        
+        .author-img {
+            width: 120px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--beige-claro);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .author:hover .author-img {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--texto-muy-oscuro);
+            background: var(--beige-claro);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--azul-profesional);
+            color: var(--blanco);
+            transform: translateY(-3px);
+        }
+        
+        /* Secciones de autores individuales */
+        .author-section {
+            padding: 80px 0;
+            display: none;
+            background: var(--gris-claro);
+        }
+        
+        .author-detail {
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .author-detail::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(to right, var(--azul-profesional), var(--dorado-profesional));
+            border-radius: 15px 15px 0 0;
+        }
+        
+        p {
+            text-align: justify;
+        }
+        
+        .author-detail h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--texto-muy-oscuro);
+            position: relative;
+        }
+        
+        .author-detail h2::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--azul-profesional);
+            border-radius: 2px;
+        }
+        
+        .author-detail .author-img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        
+        /* Pie de página */
+        footer {
+            background: linear-gradient(135deg, var(--azul-profesional), var(--dorado-profesional));
+            color: var(--blanco);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(to right, var(--azul-profesional), var(--blanco), var(--dorado-profesional));
+        }
+        
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+        
+        .heart {
+            color: #ff6b6b;
+            animation: pulse 1.5s infinite;
+            display: inline-block;
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            
+            .slideshow-container, header {
+                height: 400px;
+            }
+            
+            nav ul li {
+                margin: 5px;
+            }
+            
+            nav ul li a {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+            
+            .post {
+                padding: 30px 20px;
+            }
+            
+            .author {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            nav .logo {
+                width: 50px;
+                margin-right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <nav>
+        <img src="img/Logo Minimalista Vestimenta y Joyería .png" alt="Logo" class="logoDream" >
+        <ul>
+            <li><a href="#" onclick="showSection('home')"><i class="fas fa-home"></i> HOME</a></li>
+            <li><a href="#" onclick="showSection('reflexiones')"><i class="fas fa-users"></i> Reflexiones</a></li>
+            <li><a href="#" onclick="showSection('about')"><i class="fas fa-users"></i> NOSOTROS</a></li>
+            <li><a href="#" onclick="showAuthor('ximena')"><i class="fas fa-user"></i> Ximena</a></li>
+            <li><a href="#" onclick="showAuthor('henry')"><i class="fas fa-user"></i> Henry</a></li>
+            <li><a href="#" onclick="showAuthor('julian')"><i class="fas fa-user"></i> Julian</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Carrusel de imágenes (solo visible en Home) -->
+    <header id="header-slider">
+        <div class="slideshow-container">
+            <div class="slides">
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1518655048521-f130df041f66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1518655048521-f130df041f66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Contenido principal -->
+    <section class="main-content" id="home-section">
+        <div class="container">
+            <div class="post">
+                <h2>Comunicaciones</h2>
+                <p>La comunicación es el proceso de transmitir y recibir mensajes, ideas o sentimientos entre dos o más personas. Sirve para compartir información, establecer relaciones, llegar a acuerdos y organizarnos como sociedad. En esencia, la comunicación es fundamental para la vida humana y para el funcionamiento de cualquier grupo social, desde pequeñas interacciones hasta la organización de naciones enteras.</p>
+                <p>"Lo más importante en la comunicación es escuchar lo que no se dice".</p>
+                <br>
+            </div>
+        </div>
+    </section>
+    
+    <section class="main-content" id="reflexiones-section" style="display: none;">
+        <div class="container">
+            <div class="post">
+                <h2>Reflexiones</h2>
+                <h1>Ximena</h1>
+                <p>La comunicación no es solo hablar; es también cómo decimos las cosas y cómo nos comportamos al expresarlas. Al ver la diferencia entre comunicación agresiva, pasiva y asertiva, entendemos que la agresiva hiere a otros, la pasiva nos hace callar nuestras necesidades y la asertiva nos permite hablar con respeto y seguridad. Además, aprendimos que el paralenguaje, como el tono y el volumen de la voz, cambia totalmente el significado de un mensaje y puede transmitir emociones como enojo, alegría o sarcasmo sin necesidad de palabras fuertes.
+
+                También vimos que la comunicación no verbal, con gestos, miradas y posturas, dice más que lo que expresamos con la boca. Por ejemplo, en la escena de la película El Color del Paraíso, la maestra usa frases sencillas pero importantes para mantener el contacto y demostrar cuidado, lo que muestra la función fática. En general, todos estos temas nos enseñan que la comunicación es la base para convivir bien, resolver problemas y expresar lo que sentimos de manera correcta.
+
+</p>
+                <h1>Henry</h1>
+                <p>Está asignatura nos ha permitido tener en cuenta y  tener conocimiento de como nos comunicamos y de que forma lo hacemos, todo esto a través de la diferentes actividades que hemos realizado, cómo el cuento que nos permitió conectar con nuestro subconsciente, que en esta actividad salió a flote gracias a una tecnica que jamás había visto, y nos hace pensar en lo que un simple texto escrito a prisas puede decir de nosotros mismo; el análisis de tipos de comunicación, refuerza los conocimientos anteriores y además nos permitió hacer equipo con alguien con el cual no hemos trabajado antes, para analizar los tipos y al final determinar el tipo de comunicación de personajes conocidos; gracias a la actuación sé logró ver y sentir los diferentes tipos comunicación no verbal y verbal reforzando con el documento que se escribió y la presentacion de powerpoint, para finalizar gracias a esta clase he podido identificar y actuar en base a mis sentimientos y el entorno que me rodea.</p>
+                <h1>Julian</h1>
+                <p>Estos temas nos enseñan que comunicarse no es solo decir palabras, sino también cómo las decimos y lo que hacemos al hablar. Por ejemplo, la comunicación asertiva nos ayuda a expresarnos sin lastimar a otros, mientras que la agresiva busca imponer lo que pensamos y la pasiva nos hace callar lo que sentimos. Además, la pasiva-agresiva, como cuando alguien habla con indirectas, solo crea problemas y malos entendidos.
+
+También vimos que cosas como el tono de voz, los gestos, las miradas o la distancia con las personas dicen mucho más de lo que creemos. En la película El Color del Paraíso se nota cómo un abrazo o la forma de mirar pueden expresar cariño, tristeza o autoridad sin usar palabras. Todo esto nos sirve para pensar en cómo hablamos y actuamos cada día, para que los demás entiendan realmente lo que queremos decir sin herirlos ni quedarnos callados.</p>
+                <br>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección "About Us" -->
+    <section class="about-section" id="about-section" style="display: none;">
+        <div class="container">
+            <h2>Conoce a Nuestro Equipo</h2>
+            <div class="authors">
+                <div class="author" id="ximena-info">
+                    <img src="img/ximena.jpeg" alt="Ximena" class="author-img" height="200px">
+                    <h3>Ximena</h3>
+                    <p>Me considero una persona muy responsable, estudiosa y decente. Tengo 18 años y actualmente estudio Programación de Software, me gusta mucho escuchar música y pasar tiempo con mis amigas. Me gusta mi espacio personal y amo pasar tiempo conmigo misma. Me gusta leer y escribir, lo hago casi diario, me gusta mucho el maquillaje, las joyas y la ropa. Me encanta la luna y observar el cielo por las noches.</p>
+                </div>
+                <div class="author" id="henry-info">
+                    <img src="img/Henry.jpeg" alt="Henry" class="author-img">
+                    <h3>Henry</h3>
+                    <p>Soy Henry Alejandro David Posso, 19 años, alguien tranquilo la mayor de las veces, evitando conflictos y ser amable con las personas a mi alrededor, me encanta la naturaleza y el arte, sobre todo la música con la que puedo conectar a través de sus instrumentos más que por su letra, uno de mis hobbies favoritos es dibujar y jugar videojuegos sobre todo los de historia.</p>
+                </div>
+                <div class="author" id="julian-info">
+                    <img src="img/julian.jpeg" alt="Julian" class="author-img">
+                    <h3>Julian</h3>
+                    <p>Soy Juliand David Marín Iglesias, un joven de 20 años apasionado por la tecnología y el deporte. Actualmente estudio Desarrollo de Software, una carrera que me permite combinar mi creatividad con mi habilidad para resolver problemas. Me entusiasma aprender sobre nuevas herramientas digitales, programación y cómo construir soluciones que generen un impacto positivo en la vida de las personas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Secciones de autores individuales -->
+    <section class="author-section" id="ximena-section" style="display: none;">
+        <div class="container">
+            <div class="author-detail">
+                <img src="img/ximena.jpeg" alt="Ximena" class="author-img">
+                <h2>Ximena Chaverra</h2>
+                <h1>La sapa Caramelo</h1>
+                <p>Estaba la sapa caramelo sentada a la orilla del rio cauca en el peñasco mas alto de la región, observaba el cielo y las aves del mismo, sentía la brisa del aire y analizaba el panorama que la acompañaba, sentía paz y tranquilidad por el ruido de la naturaleza. A lo lejos ve un sapo lleno de moco, lo cual le resultó familiar, hace mucho no veía uno así, lo observaba con familiaridad, recordando así su familia, vinieron recuerdos de cuando hace mucho tiempo un humano mató a un familiar con una estaca en frente de sus ojos, eso la hizo sentir triste y nostálgica, sintió un nudo en la garganta, tenía muchas ganas de llorar, ese momento fue de superación y desde allí entendió que los humanos no merecían la naturaleza, los humanos tiraban y mataban a los animales, dejaban basura como botellas, tapas, desechos, provocaban incendios y esto no le gustaba nada a la sapa, pero ella miraba el cielo y recordaba que todo el mundo merecía vivir, esto le daba esperanza de que algún día recapacitaran, aprovecharan la naturaleza con responsabilidad, cuidaran de los animales y lo reconfortante que era el bioma natural.</p>            
+                <h2>Taller de comunicación Asertiva</h2>
+                <h1>Ximena Chaverra y Yuleniz Agudelo</h1>
+                <p>a. ¿Cuál es la diferencia entre comunicación agresiva y comunicación pasiva? Comunicación agresiva: Es cuando las personas expresan sus pensamientos y necesidades invadiendo e ignorando los derechos de los demás. Comunicación Pasiva: Las personas tienden a poner las necesidades de los demás por encima de las suyas. b. De un ejemplo de la vida cotidiana, diferente al del video, donde se evidencie la comunicación pasiva-agresiva Antes de una reunión familiar, una tía y su sobrina tuvieron una discusión tiempo atrás, a la hora de la reunión, la tía comienza a lanzar indirectas contra su sobrina expresando sus inconformidades indirectamente y exponencial, formando así un mal ambiente familiar c.¿Qué características tiene la comunicación asertiva? -Es abierta -Honesta -Directa -Respetuosa y empática d.1er personaje: A. comunicación agresiva 2do personaje: C. comunicación asertiva 3er personaje: A. comunicación agresiva 4to personaje: B. comunicación pasiva 5to personaje: A. comunicación agresiva 6to personaje: C. comunicación asertiva</p>            
+                <h2>Exposición Función Fática</h2>
+                <h1>Isabela Varela, Alejandro Upegui y Ximena Chaverra</h1>
+                <img src="img/captura4.png" alt="">
+                <img src="img/captura1.png" alt="">
+                <img src="img/captura 2.png" alt="">
+                <img src="img/captura 3.png" alt="">
+                <h2>Investigación comunicación no verbal- Paralenguaje</h2>
+                <h1>Isabella Varela, Alejandro Upegui y Ximena Chaverra</h1>
+                <p>Comunicación No Verbal en el entorno Social ¿Qué es la comunicación no verbal? La comunicación no verbal es el proceso de transmitir mensajes sin necesidad de palabras, utilizando el cuerpo, los gestos, las expresiones faciales, el espacio, el contacto visual y el tono de voz. Representa gran parte de lo que se comunica en la vida diaria y muchas veces tiene más impacto que el mensaje verbal. ¿Para qué sirve en el entorno social? En los contextos sociales, esta forma de comunicación tiene una gran utilidad, ya que permite: Expresar sentimientos y emociones (como alegría, enojo, incomodidad). Mostrar actitudes (amabilidad, autoridad, rechazo, interés). Regular la interacción (cuándo es apropiado hablar, escuchar, o retirarse). Reforzar vínculos sociales (a través de gestos como abrazos, miradas, sonrisas). Transmitir normas y valores culturales sin necesidad de palabras. Según Knapp y Hall (2010), la comunicación no verbal cumple funciones fundamentales en los entornos sociales, ya que influye directamente en cómo se establecen, mantienen o terminan las relaciones humanas. El paralenguaje como parte de la comunicación no verbal El paralenguaje se refiere a todos los elementos vocales que acompañan el habla pero que no son palabras. Incluye el tono de voz, el ritmo, el volumen, las pausas, la entonación y hasta los suspiros o risas. Aunque se produce con la voz, se considera comunicación no verbal porque no transmite contenido verbal directo, sino emociones, actitudes o intenciones. En un entorno social, el paralenguaje permite, por ejemplo: Detectar ironía o sarcasmo, aunque las palabras sean neutras. Mostrar entusiasmo o desinterés según la energía al hablar. Dar énfasis a ciertas ideas. Transmitir autoridad o sumisión según la firmeza de la voz. Por ejemplo, un simple "hola" puede sonar amable, molesto, frío o alegre dependiendo del paralenguaje que lo acompañe. El paralenguaje afecta la interpretación de lo que se dice. En un entorno social, una misma frase puede ser recibida de manera completamente diferente si cambia la entonación o el volumen. ¿Para qué sirve el paralenguaje? En el entorno social, el paralenguaje cumple múltiples funciones comunicativas esenciales: Transmitir emociones: Permite expresar alegría, enojo, tristeza, duda o entusiasmo sin cambiar las palabras. Ejemplo: decir “¿en serio?” con tono incrédulo o sarcástico. Reforzar o contradecir el mensaje verbal: Puedes decir “estoy bien”, pero si lo haces con voz temblorosa y débil, el paralenguaje indica lo contrario. Indicar intenciones o actitudes: Un tono firme puede demostrar seguridad, mientras que uno titubeante puede revelar inseguridad. Regular el turno de la conversación: Las pausas, cambios de entonación o énfasis ayudan a indicar cuándo otra persona puede hablar o cuándo se está concluyendo una idea. Mostrar énfasis y matices: Puedes destacar una parte del mensaje cambiando la entonación: “¡Eso fue increíble!” puede ser sarcástico o genuino, según cómo se diga. Importancia del paralenguaje El paralenguaje permite enriquecer el lenguaje verbal. Sin él, la comunicación sería ambigua o plana. En la vida diaria, el tono en que decimos algo influye más que las palabras mismas. Además, en muchas culturas, se considera de mala educación hablar con un tono agresivo o interrumpir sin esperar pausas. Ejemplos en entornos sociales - En una entrevista de trabajo, el tono seguro y pausado puede generar confianza, mientras que un tono plano y monótono puede percibirse como falta de interés. - En una conversación informal entre amigos, el volumen alto y el ritmo rápido pueden indicar emoción o entusiasmo. - En una discusión, elevar el volumen o usar un tono cortante puede desencadenar conflictos, aunque las palabras sean educadas. Cita de fuente IA IA: ChatGPT. Ref: pregunta "¿Qué es paralenguaje y para que sirve en el entorno social?". Tomado: 25 de junio de 2025. Referencias o bibliografía Knapp, M. L., & Hall, J. A. (2010). La comunicación no verbal en la interacción humana (7.ª ed.). Wadsworth Cengage Learning.</p>
+
+                <br>
+                <h1>Escena de la película “EL COLOR DEL PARAISO”</h1>
+                <p>
+                                    
+                En los primeros minutos de la película, se muestra una escena en la que los niños están saliendo del internado en Teherán. La maestra o cuidadora se despide de ellos con frases como:
+                “¡Adiós!”
+
+                “Cuídense, que tengan buen viaje”
+
+                “¿Estás bien? ¿Ya vino tu familia?”
+
+
+                Aunque estas frases no contienen información profunda ni explicaciones extensas, cumplen una función muy importante en la comunicación: la función fática.
+                Esto se nota porque:
+                Sirven para abrir o cerrar el canal de comunicación.
+
+
+                Verifican que la otra persona (los niños) está presente o escucha.
+
+
+                Permiten mantener la cortesía y la relación interpersonal.
+
+
+
+                En resumen, la función del lenguaje aquí no es dar datos nuevos, sino mantener el vínculo comunicativo entre la maestra y los estudiantes. Es una manera de cuidar la relación y asegurar que todo fluya de forma natural en el momento de la despedida.
+</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="author-section" id="henry-section" style="display: none;">
+        <div class="container">
+            <div class="author-detail">
+                <img src="img/Henry.jpeg" alt="Henry" class="author-img">
+                <h2>Henry David Posso</h2>
+                <h1>La sapa Caramelo</h1>
+                <p>Estaba la sapa caramelo sentada a la orilla del Rio Cauca en el peñasco más alto de la región, estaba pensado lo bonito que es la vida y la naturaleza, con sus cielos y sus horizontes, como era de mañana y sufría de rinitis, un estornudo le hizo sacar de su nariz un moco tan grande que la hizo reír de lo enorme que era, cuando se retiraba del peñasco paso por un potrero, al momento de pasar cerca de ella se pegó con una estaca porque era muy despistada y no se dio cuenta que mientras caminaba por la yerba alta los cordones de sus zapatos hicieron un nudo, después de levantarse y organizarse, saco de su bolso una botella de agua, pero al momento de destaparla la tapa cayó al suelo y se perdió en la yerba, como todavía le quedaba camino por recorrer quería encontrar la tapa, pese a que era casi imposible por el nivel de frondosidad de la yerba ella aun mantenía la esperanza de encontrarla, después de algunos minutos de búsqueda por fin la encontró y continuo su camino.</p>
+                <h2>Taller tipos de comunicación</h2>
+                <h1> Henry David Posso y Isabela Vence</h1>
+                <p>1. R//= Los tipos de comunicación son: - Comunicación Asertiva. - Comunicación Pasiva. - Comunicación Agresiva. - Comunicación Pasivo-Agresiva. 2. R//= En comunicación Pasiva se colocan las necesidades de los demás por encima de las propias, en cambio; en Comunicación Agresiva se llegan a invadir e ignorar los sentimientos y opiniones de los demás. 3. R//= En el ámbito social cuando en un grupo de amigos empiezan a haber discordias entre algunos de los integrantes afectando la convivencia del grupo, y prefieren guardarse sus inconformidades pasando a decir comentarios sarcásticos e indirectos, llevando a uno de los integrantes del grupo a tomar iniciativas de dialogo para solucionar sus diferencias. 4. R//= - Escucha Activa. - Declaraciones en primera persona. - Establecer límites claros. - Manejo de críticas y respuestas negativas. - Lenguaje corporal asertivo. - Reconocimiento de los derechos de los demás. - Preparación para conversaciones difíciles. 5. R//= Jefe de Mr. Increíble: Agresivo. Maivis: Asertivo Caras de Papa: Agresivo Linguini: Pasivo</p>
+                <h1>Presentacion- Comunicación Apelativa</h1>
+                <img src="img/presentacion.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                <img src="img/presentacion2.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                <img src="img/presentacion3.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                <img src="img/presentacion4.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                <img src="img/presentacion5.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                <img src="img/presentacion6.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                <h2>Investigacion comunicación no verbal</h2>
+                <h1>Julian David Marin, Santiago Hernandez y Henry David Posso</h1>
+                <p>Función Apelativa (Proxemia) ¿Para qué es? La función apelativa del lenguaje es aquella que se enfoca en el receptor, con el objetivo de provocar una reacción, influir en su comportamiento o llamar su atención. Se manifiesta principalmente en órdenes, peticiones, consejos, invitaciones o preguntas. Su finalidad es generar una respuesta concreta del oyente, ya sea verbal o no verbal. Dentro de esta función, la proxémica juega un papel fundamental como elemento de la comunicación no verbal, ya que a través del uso del espacio personal también se pueden transmitir mensajes y reforzar la intención del hablante. ¿Para qué sirve? La función apelativa, apoyada por la proxémica, sirve para dirigir la conducta de los demás. En la vida cotidiana, es esencial para actividades como la enseñanza, el liderazgo, la atención al cliente, la publicidad, y en general, toda interacción social en la que se desee generar una acción o reacción. La proxémica, al regular las distancias interpersonales, permite al emisor del mensaje ajustar su estrategia comunicativa: por ejemplo, acercarse para expresar confidencialidad o alejarse para imponer autoridad. Esto influye en cómo se interpreta el mensaje y puede mejorar la eficacia de la comunicación apelativa. Características - Centrada en el receptor: busca provocar una acción específica. - Se manifiesta a través de órdenes, ruegos, sugerencias, preguntas y avisos. - Se apoya en el tono de voz, gestos y la proxémica para aumentar su efectividad. - La proxémica regula la distancia entre las personas según el contexto comunicativo. - Existen cuatro zonas proxémicas: íntima (0-45 cm), personal (45 cm - 1.2 m), social (1.2 - 3.6 m) y pública (más de 3.6 m). - Las normas proxémicas varían según la cultura, edad, género y relación entre los interlocutores. Ejemplos de Uso de la Función Apelativa con Proxémica - Un profesor que se acerca al estudiante para motivarlo a participar en clase. - Un jefe que mantiene una distancia social para marcar jerarquía al dar instrucciones. - Un amigo que reduce la distancia para pedir un favor con tono de confianza. - Un vendedor que regula su proximidad para no incomodar al cliente mientras le ofrece un producto. ¿Qué es la Kinésica? La kinésica es el estudio del lenguaje corporal, que incluye todos los movimientos y posturas del cuerpo, expresiones faciales, gestos, movimientos de manos, orientación corporal y contacto visual. Es una parte importante de la comunicación no verbal y juega un papel crucial en cómo se interpreta un mensaje. A menudo acompaña al lenguaje verbal para reforzar, contradecir o sustituir el contenido del mensaje. La kinésica permite comprender las emociones, intenciones y actitudes del emisor, incluso cuando no se emite palabra alguna. Por ejemplo, una sonrisa puede indicar amabilidad, mientras que cruzar los brazos puede sugerir una actitud defensiva. Importancia de la Kinésica - Refuerza el mensaje verbal con gestos, posturas y expresiones. - Facilita la interpretación de emociones como la alegría, tristeza, enojo o sorpresa. - Es clave en la comunicación intercultural, aunque puede variar según el contexto cultural. - Ayuda a mantener el interés del receptor y mejorar la claridad del mensaje. - Puede revelar intenciones verdaderas que el lenguaje verbal intenta ocultar.
+
+                </p>
+                <br>
+                <h1>Escena de la película “EL COLOR DEL PARAISO”</h1>
+                <p>Ejemplo de comunicación no verbal: Paralenguaje en base a la película
+                Escena: Mohamed y su abuela en la casa
+                En esta escena, Mohamed intenta seguir a sus hermanas hacia la escuela, pero su abuela se interpone físicamente, acercándose para impedir su partida. A través de la proxemia, se transmiten emociones y relaciones de poder:
+                Barrera física: La abuela se coloca frente a Mohamed, invadiendo su espacio personal para bloquear su camino.
+                Contacto dominante: Le agarra de los hombros con firmeza, usando el tacto para afirmar su autoridad mientras su tono de voz mezcla súplica y mandato.
+                Resistencia corporal: Mohamed inclina su cuerpo hacia donde van sus hermanas, estira los brazos y llora, usando su discapacidad visual como recurso apelativo.
+                Elipsis significativa: El corte abrupto a la siguiente escena (ambos frente a la escuela) omite la negociación verbal, destacando el cambio proxémico:
+                La abuela ya no bloquea, sino que acompaña
+                La distancia física se reduce, simbolizando cesión emocional
+                Así, el espacio se convierte en lenguaje: de instrumento de control a puente de conexión. La película muestra que lo no verbal (posturas, silencios, distancia) puede comunicar más que las palabras.</p>
+                            </div>
+        </div>
+    </section>
+    
+    <section class="author-section" id="julian-section" style="display: none;">
+        <div class="container">
+            <div class="author-detail">
+                <img src="img/julian.jpeg" alt="Julian" class="author-img">
+                <h2>Julian David Marin</h2>
+                <h1>La sapa Caramelo</h1>
+                <p>Estaba la sapa caramelo sentada a la orilla del rio cauca en el peñasco mas alto de la región, la sapa acostumbrada a divisar el paisaje desde ahí sintió como la piedra en la cual estaba sentada se movió mientras crujía, la sapa caramelo temía caer al vacío y del susto que sintió un moco asomo colgando, la sapa con astucia pudo dar un salto antes de que la piedra cayera y logro sujetarse de una estaca que separaba un lindero entre fincas, la sapa a pesar de sujetarse de la estaca temía caer debido a lo inclinado que estaba el terreno y con una soga pudo hacer un nudo que le ayudara a sujetarse, con una tapa de olla metálica que encontró en la raíz de la estaca empezó a hacer ruido para que alguien la escuchara y fuera a socorrerla, lastimosamente nadie pudo escucharla y pasados 2 días la rana perdió su esperanza cortó el nudo y se dejó caer al vació y despertó, para sorpresa del que lee esto solo fue una pesadilla la peor de todas pero mama sapa golosina</p>
+                <h2>Taller de comunicación asertiva</h2>
+                <h1>Julian Jimenez y Julian David Marin</h1>
+
+                <p>R/= Comunicación asertiva, Comunicación agresiva, Comunicación pasiva, Comunicación pasiva-agresiva ¿Cuál es la diferencia entre comunicación agresiva y comunicación pasiva? R/= la comunicación agresiva tiende a expresar sus necesidades sin valorar los derechos o necesidades de otras personas, puede interrumpir o alzar el tono de su voz para imponerse. por el contrario la comunicación pasiva es aquella que tiende a poner las necesidades de las otras personas por encima de las suyas, sin importar los sentimientos propios y sin expresar sus necesidades De un ejemplo de la vida cotidiana, diferente al del video, donde se evidencie la comunicación pasiva-agresiva: Un ejemplo de la comunicación pasiva-agresiva en la vida cotidiana se puede evidenciar en las parejas cuando una de las personas a través de indirectas como “Que rico unas pastas”, intenta comunicar su deseo porque su pareja la invite a comer y si su pareja no entiende este mensaje claro puede terminar en una discusión con frases como “tu no me entiendes, o no sabes leerme” ¿Qué características tiene la comunicación asertiva? R/= declaraciones en primera persona, establecimiento de límites claros, escucha activa, manejo de críticas y respuestas negativas, lenguaje corporal asertivo, reconocimiento de los derechos de los demás, preparación para conversaciones difíciles Contestar las preguntas del siguiente video: https://www.youtube.com/watch?v=u4sQ9jwySz4 video 1 respuesta “A” agresivo video 2 respuesta “C” asertivo video 3 respuesta “A” agresivo video 4 respuesta “B” pasivo</p>
+                <h1>Presentacion- Comunicación Apelativa</h1>
+                <img src="img/presentacion.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                <img src="img/presentacion2.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                <img src="img/presentacion3.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                <img src="img/presentacion4.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                <img src="img/presentacion5.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                <img src="img/presentacion6.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                <h2>Investigacion comunicación no verbal</h2>
+                <h1>Julian David Marin, Santiago Hernandez y Henry David Posso</h1>
+
+                <p>Función Apelativa (Proxemia) ¿Para qué es? La función apelativa del lenguaje es aquella que se enfoca en el receptor, con el objetivo de provocar una reacción, influir en su comportamiento o llamar su atención. Se manifiesta principalmente en órdenes, peticiones, consejos, invitaciones o preguntas. Su finalidad es generar una respuesta concreta del oyente, ya sea verbal o no verbal. Dentro de esta función, la proxémica juega un papel fundamental como elemento de la comunicación no verbal, ya que a través del uso del espacio personal también se pueden transmitir mensajes y reforzar la intención del hablante. ¿Para qué sirve? La función apelativa, apoyada por la proxémica, sirve para dirigir la conducta de los demás. En la vida cotidiana, es esencial para actividades como la enseñanza, el liderazgo, la atención al cliente, la publicidad, y en general, toda interacción social en la que se desee generar una acción o reacción. La proxémica, al regular las distancias interpersonales, permite al emisor del mensaje ajustar su estrategia comunicativa: por ejemplo, acercarse para expresar confidencialidad o alejarse para imponer autoridad. Esto influye en cómo se interpreta el mensaje y puede mejorar la eficacia de la comunicación apelativa. Características - Centrada en el receptor: busca provocar una acción específica. - Se manifiesta a través de órdenes, ruegos, sugerencias, preguntas y avisos. - Se apoya en el tono de voz, gestos y la proxémica para aumentar su efectividad. - La proxémica regula la distancia entre las personas según el contexto comunicativo. - Existen cuatro zonas proxémicas: íntima (0-45 cm), personal (45 cm - 1.2 m), social (1.2 - 3.6 m) y pública (más de 3.6 m). - Las normas proxémicas varían según la cultura, edad, género y relación entre los interlocutores. Ejemplos de Uso de la Función Apelativa con Proxémica - Un profesor que se acerca al estudiante para motivarlo a participar en clase. - Un jefe que mantiene una distancia social para marcar jerarquía al dar instrucciones. - Un amigo que reduce la distancia para pedir un favor con tono de confianza. - Un vendedor que regula su proximidad para no incomodar al cliente mientras le ofrece un producto. ¿Qué es la Kinésica? La kinésica es el estudio del lenguaje corporal, que incluye todos los movimientos y posturas del cuerpo, expresiones faciales, gestos, movimientos de manos, orientación corporal y contacto visual. Es una parte importante de la comunicación no verbal y juega un papel crucial en cómo se interpreta un mensaje. A menudo acompaña al lenguaje verbal para reforzar, contradecir o sustituir el contenido del mensaje. La kinésica permite comprender las emociones, intenciones y actitudes del emisor, incluso cuando no se emite palabra alguna. Por ejemplo, una sonrisa puede indicar amabilidad, mientras que cruzar los brazos puede sugerir una actitud defensiva. Importancia de la Kinésica - Refuerza el mensaje verbal con gestos, posturas y expresiones. - Facilita la interpretación de emociones como la alegría, tristeza, enojo o sorpresa. - Es clave en la comunicación intercultural, aunque puede variar según el contexto cultural. - Ayuda a mantener el interés del receptor y mejorar la claridad del mensaje. - Puede revelar intenciones verdaderas que el lenguaje verbal intenta ocultar.</p>
+
+                </p>
+                <br>
+                <h1>Escena de la película “EL COLOR DEL PARAISO”</h1>
+                <p>Ejemplo de comunicación no verbal: Paralenguaje en base a la película
+                Escena: Mohamed y su abuela en la casa
+                En esta escena, Mohamed intenta seguir a sus hermanas hacia la escuela, pero su abuela se interpone físicamente, acercándose para impedir su partida. A través de la proxemia, se transmiten emociones y relaciones de poder:
+                Barrera física: La abuela se coloca frente a Mohamed, invadiendo su espacio personal para bloquear su camino.
+                Contacto dominante: Le agarra de los hombros con firmeza, usando el tacto para afirmar su autoridad mientras su tono de voz mezcla súplica y mandato.
+                Resistencia corporal: Mohamed inclina su cuerpo hacia donde van sus hermanas, estira los brazos y llora, usando su discapacidad visual como recurso apelativo.
+                Elipsis significativa: El corte abrupto a la siguiente escena (ambos frente a la escuela) omite la negociación verbal, destacando el cambio proxémico:
+                La abuela ya no bloquea, sino que acompaña
+                La distancia física se reduce, simbolizando cesión emocional
+                Así, el espacio se convierte en lenguaje: de instrumento de control a puente de conexión. La película muestra que lo no verbal (posturas, silencios, distancia) puede comunicar más que las palabras.</p>
+                            
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <p>Hecho por Ximena, Henry y Julian | © 2023 Nuestro Blog Dream</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Carrusel de imágenes mejorado
+        let currentSlide = 0;
+        const slidesContainer = document.querySelector('.slides');
+        const slidesCount = document.querySelectorAll('.slide').length / 2; // Only count original slides
+        let slideInterval;
+        
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= slidesCount) {
+                slidesContainer.style.transition = 'none';
+                currentSlide = 0;
+                slidesContainer.style.transform = `translateX(0%)`;
+                slidesContainer.offsetHeight;
+                slidesContainer.style.transition = 'transform 1s ease-in-out';
+            } else {
+                updateSlider();
+            }
+        }
+        
+        function updateSlider() {
+            const offset = -currentSlide * (100 / slidesCount);
+            slidesContainer.style.transform = `translateX(${offset}%)`;
+        }
+        
+        // Función para mostrar secciones
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('.about-section, .author-section, .main-content').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Mostrar/ocultar el carrusel según la sección
+            const headerSlider = document.getElementById('header-slider');
+            if (sectionId === 'home') {
+                headerSlider.style.display = 'block';
+                startSlider();
+            } else {
+                headerSlider.style.display = 'none';
+                clearInterval(slideInterval);
+            }
+            
+            // Mostrar la sección seleccionada
+            if (sectionId === 'home') {
+                document.getElementById('home-section').style.display = 'block';
+            } else if (sectionId === 'reflexiones') {
+                document.getElementById('reflexiones-section').style.display = 'block';
+            } else {
+                document.getElementById(sectionId + '-section').style.display = 'block';
+            }
+            
+            // Desplazamiento suave
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            return false;
+        }
+        
+        // Función para mostrar información de autor
+        function showAuthor(authorId) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('.about-section, .author-section, .main-content').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Ocultar el carrusel
+            document.getElementById('header-slider').style.display = 'none';
+            clearInterval(slideInterval);
+            
+            // Mostrar la sección del autor seleccionado
+            document.getElementById(authorId + '-section').style.display = 'block';
+            
+            // Desplazamiento suave
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            return false;
+        }
+        
+        // Mostrar la sección de inicio por defecto
+        window.onload = function() {
+            document.getElementById('home-section').style.display = 'block';
+            startSlider();
+            
+            // Agregar efecto de aparición gradual
+            const elements = document.querySelectorAll('.post, .author');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 150 * index);
+            });
+        };
+        
+        // Inicializar elementos con opacidad 0 para la animación
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.post, .author');
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+        });
+    </script>

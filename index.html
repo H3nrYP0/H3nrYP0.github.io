@@ -7,514 +7,7 @@
     <link rel="icon" type="image/png" href="img/Logo Minimalista Vestimenta y Joyería .png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        :root {
-            --beige-claro: #f5f5f0;
-            --beige-medio: #e8e8e0;
-            --beige-oscuro: #d8d2c8;
-            --azul-profesional: #4a6fa5;
-            --dorado-profesional: #c0a062;
-            --blanco: #fff;
-            --gris-claro: #f8f8f8;
-            --texto-oscuro: #555;
-            --texto-muy-oscuro: #333;
-        }
-        
-        /* Estilos generales */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
-            color: var(--texto-oscuro);
-            background-color: var(--beige-claro);
-            transition: all 0.3s ease;
-        }
-        
-        .container {
-            width: 85%;
-            margin: auto;
-            overflow: hidden;
-            max-width: 1200px;
-        }
-        
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--texto-muy-oscuro);
-        }
-        
-        /* Navegación */
-        nav {
-            background: var(--blanco);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-            background-color: rgba(255, 255, 255, 0.95);
-            display: flex;
-            align-items: center;
-        }
-        .logoDream{
-            width: 100px;
-            height: 100px;
-             margin-right: 20px;
-            margin-left: 20px; /* Desplazamiento base */
-            transform: translateX(20px); /* Ajuste fino adicional hacia la derecha */
-            height: auto;
-            margin-right: 20px;
-        }
-        
-        nav .logo {
-            width: 50px;
-            height: auto;
-            margin-right: 20px;
-            margin-left: 20px; /* Desplazamiento base */
-            transform: translateX(20px); /* Ajuste fino adicional hacia la derecha */
-            width: 50px;
-            height: auto;
-            margin-right: 20px;
-        }
-        
-
-        
-        nav ul {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            flex-grow: 1;
-        }
-        
-        nav ul li {
-            margin: 0 12px;
-            position: relative;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--texto-muy-oscuro);
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 1px;
-            padding: 8px 12px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        nav ul li a:hover {
-            background-color: var(--azul-profesional);
-            color: var(--blanco);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(74, 111, 165, 0.3);
-        }
-        
-        nav ul li a i {
-            margin-right: 5px;
-        }
-        
-        /* Carrusel de imágenes mejorado */
-        .slideshow-container {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            overflow: hidden;
-            display: block;
-        }
-        
-        .slides {
-            display: flex;
-            width: 800%;
-            height: 100%;
-            transition: transform 1s ease-in-out;
-        }
-        
-        .slide {
-            width: 12.5%;
-            height: 100%;
-            flex-shrink: 0;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .author-img {
-            height: 200px;
-        }
-        
-        /* Encabezado */
-        header {
-            position: relative;
-            overflow: hidden;
-            height: 500px;
-        }
-        
-        /* Contenido principal */
-        .main-content {
-            padding: 50px 0;
-        }
-        
-        .post {
-            margin-bottom: 50px;
-            text-align: center;
-            background: var(--blanco);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .post:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .post::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--azul-profesional), var(--dorado-profesional));
-        }
-        
-        .post h2 {
-            font-size: 2.2em;
-            margin-bottom: 25px;
-            color: var(--texto-muy-oscuro);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .post h2::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: var(--azul-profesional);
-            border-radius: 3px;
-        }
-        
-        .post p {
-            margin-bottom: 25px;
-            color: var(--texto-oscuro);
-            font-size: 1.05em;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: linear-gradient(to right, var(--azul-profesional), var(--dorado-profesional));
-            color: var(--blanco);
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(74, 111, 165, 0.3);
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(74, 111, 165, 0.4);
-            background: linear-gradient(to right, var(--dorado-profesional), var(--azul-profesional));
-        }
-        
-        .btn:active {
-            transform: translateY(1px);
-        }
-        
-        /* Sección "About Us" */
-        .about-section {
-            padding: 70px 0;
-            background: var(--gris-claro);
-            display: none;
-            position: relative;
-        }
-        
-        .about-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 15px;
-            background: linear-gradient(to right, var(--azul-profesional), var(--dorado-profesional), var(--azul-profesional));
-            opacity: 0.7;
-        }
-        
-        .about-section h2 {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5em;
-            position: relative;
-        }
-        
-        .about-section h2::after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--azul-profesional);
-            border-radius: 2px;
-        }
-        
-        .authors {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        
-        .author {
-            background: var(--blanco);
-            padding: 30px;
-            width: 300px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .author:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .author::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, var(--azul-profesional), var(--dorado-profesional));
-        }
-        
-        .author h3 {
-            color: var(--texto-muy-oscuro);
-            margin: 20px 0 15px;
-            font-size: 1.5em;
-        }
-        
-        .author-img {
-            width: 120px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--beige-claro);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin: 0 auto;
-            display: block;
-            transition: all 0.3s ease;
-        }
-        
-        .author:hover .author-img {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .social-links {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            color: var(--texto-muy-oscuro);
-            background: var(--beige-claro);
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background: var(--azul-profesional);
-            color: var(--blanco);
-            transform: translateY(-3px);
-        }
-        
-        /* Secciones de autores individuales */
-        .author-section {
-            padding: 80px 0;
-            display: none;
-            background: var(--gris-claro);
-        }
-        
-        .author-detail {
-            background: var(--blanco);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .author-detail::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: linear-gradient(to right, var(--azul-profesional), var(--dorado-profesional));
-            border-radius: 15px 15px 0 0;
-        }
-        
-        p {
-            text-align: justify;
-        }
-        
-        .author-detail h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--texto-muy-oscuro);
-            position: relative;
-        }
-        
-        .author-detail h2::after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--azul-profesional);
-            border-radius: 2px;
-        }
-        
-        .author-detail .author-img {
-            width: 150px;
-            height: 150px;
-            margin-bottom: 20px;
-        }
-        
-        /* Pie de página */
-        footer {
-            background: linear-gradient(135deg, var(--azul-profesional), var(--dorado-profesional));
-            color: var(--blanco);
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
-            position: relative;
-        }
-        
-        footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 10px;
-            background: linear-gradient(to right, var(--azul-profesional), var(--blanco), var(--dorado-profesional));
-        }
-        
-        footer p {
-            margin: 0;
-            font-size: 1em;
-        }
-        
-        .heart {
-            color: #ff6b6b;
-            animation: pulse 1.5s infinite;
-            display: inline-block;
-        }
-        
-        /* Animaciones */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.3);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
-            }
-            
-            .slideshow-container, header {
-                height: 400px;
-            }
-            
-            nav ul li {
-                margin: 5px;
-            }
-            
-            nav ul li a {
-                font-size: 12px;
-                padding: 6px 10px;
-            }
-            
-            .post {
-                padding: 30px 20px;
-            }
-            
-            .author {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            nav .logo {
-                width: 50px;
-                margin-right: 10px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Navegación -->
@@ -522,6 +15,16 @@
         <img src="img/Logo Minimalista Vestimenta y Joyería .png" alt="Logo" class="logoDream" >
         <ul>
             <li><a href="#" onclick="showSection('home')"><i class="fas fa-home"></i> HOME</a></li>
+            <li class="dropdown">
+                <a href="#"><i class="fas fa-book-open"></i> TEMÁTICAS <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="tematicas.html#tipos-comunicacion">Tipos de Comunicación</a></li>
+                    <li><a href="tematicas.html#funciones-lenguaje">Funciones del Lenguaje</a></li>
+                    <li><a href="tematicas.html#comunicacion-no-verbal">Comunicación No Verbal</a></li>
+                    <li><a href="tematicas.html#elementos-comunicacion">Elementos del Proceso Comunicativo</a></li>
+                    <li><a href="tematicas.html#habilidades-blandas">Habilidades Blandas</a></li>
+                </ul>
+            </li>
             <li><a href="#" onclick="showSection('reflexiones')"><i class="fas fa-users"></i> Reflexiones</a></li>
             <li><a href="#" onclick="showSection('about')"><i class="fas fa-users"></i> NOSOTROS</a></li>
             <li><a href="#" onclick="showAuthor('ximena')"><i class="fas fa-user"></i> Ximena</a></li>
@@ -662,23 +165,24 @@ También vimos que cosas como el tono de voz, los gestos, las miradas o la dista
                 <h1>La sapa Caramelo</h1>
                 <p>Estaba la sapa caramelo sentada a la orilla del Rio Cauca en el peñasco más alto de la región, estaba pensado lo bonito que es la vida y la naturaleza, con sus cielos y sus horizontes, como era de mañana y sufría de rinitis, un estornudo le hizo sacar de su nariz un moco tan grande que la hizo reír de lo enorme que era, cuando se retiraba del peñasco paso por un potrero, al momento de pasar cerca de ella se pegó con una estaca porque era muy despistada y no se dio cuenta que mientras caminaba por la yerba alta los cordones de sus zapatos hicieron un nudo, después de levantarse y organizarse, saco de su bolso una botella de agua, pero al momento de destaparla la tapa cayó al suelo y se perdió en la yerba, como todavía le quedaba camino por recorrer quería encontrar la tapa, pese a que era casi imposible por el nivel de frondosidad de la yerba ella aun mantenía la esperanza de encontrarla, después de algunos minutos de búsqueda por fin la encontró y continuo su camino.</p>
                 <h2>Taller tipos de comunicación</h2>
-                <h1> Henry David Posso y Isabela Vence</h1>
+                <h1> Henry Posso y Isabela Cuartas</h1>
                 <p>1. R//= Los tipos de comunicación son: - Comunicación Asertiva. - Comunicación Pasiva. - Comunicación Agresiva. - Comunicación Pasivo-Agresiva. 2. R//= En comunicación Pasiva se colocan las necesidades de los demás por encima de las propias, en cambio; en Comunicación Agresiva se llegan a invadir e ignorar los sentimientos y opiniones de los demás. 3. R//= En el ámbito social cuando en un grupo de amigos empiezan a haber discordias entre algunos de los integrantes afectando la convivencia del grupo, y prefieren guardarse sus inconformidades pasando a decir comentarios sarcásticos e indirectos, llevando a uno de los integrantes del grupo a tomar iniciativas de dialogo para solucionar sus diferencias. 4. R//= - Escucha Activa. - Declaraciones en primera persona. - Establecer límites claros. - Manejo de críticas y respuestas negativas. - Lenguaje corporal asertivo. - Reconocimiento de los derechos de los demás. - Preparación para conversaciones difíciles. 5. R//= Jefe de Mr. Increíble: Agresivo. Maivis: Asertivo Caras de Papa: Agresivo Linguini: Pasivo</p>
-                <h1>Presentacion- Comunicación Apelativa</h1>
+                <h1>Presentación- Comunicación Apelativa</h1>
                 <img src="img/presentacion.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
                 <img src="img/presentacion2.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
                 <img src="img/presentacion3.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
                 <img src="img/presentacion4.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
                 <img src="img/presentacion5.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
                 <img src="img/presentacion6.png" alt="" style="max-width: 100%; height: auto; display: block; margin: auto;">
-                <h2>Investigacion comunicación no verbal</h2>
+                <h2>Investigación comunicación no verbal</h2>
                 <h1>Julian David Marin, Santiago Hernandez y Henry David Posso</h1>
                 <p>Función Apelativa (Proxemia) ¿Para qué es? La función apelativa del lenguaje es aquella que se enfoca en el receptor, con el objetivo de provocar una reacción, influir en su comportamiento o llamar su atención. Se manifiesta principalmente en órdenes, peticiones, consejos, invitaciones o preguntas. Su finalidad es generar una respuesta concreta del oyente, ya sea verbal o no verbal. Dentro de esta función, la proxémica juega un papel fundamental como elemento de la comunicación no verbal, ya que a través del uso del espacio personal también se pueden transmitir mensajes y reforzar la intención del hablante. ¿Para qué sirve? La función apelativa, apoyada por la proxémica, sirve para dirigir la conducta de los demás. En la vida cotidiana, es esencial para actividades como la enseñanza, el liderazgo, la atención al cliente, la publicidad, y en general, toda interacción social en la que se desee generar una acción o reacción. La proxémica, al regular las distancias interpersonales, permite al emisor del mensaje ajustar su estrategia comunicativa: por ejemplo, acercarse para expresar confidencialidad o alejarse para imponer autoridad. Esto influye en cómo se interpreta el mensaje y puede mejorar la eficacia de la comunicación apelativa. Características - Centrada en el receptor: busca provocar una acción específica. - Se manifiesta a través de órdenes, ruegos, sugerencias, preguntas y avisos. - Se apoya en el tono de voz, gestos y la proxémica para aumentar su efectividad. - La proxémica regula la distancia entre las personas según el contexto comunicativo. - Existen cuatro zonas proxémicas: íntima (0-45 cm), personal (45 cm - 1.2 m), social (1.2 - 3.6 m) y pública (más de 3.6 m). - Las normas proxémicas varían según la cultura, edad, género y relación entre los interlocutores. Ejemplos de Uso de la Función Apelativa con Proxémica - Un profesor que se acerca al estudiante para motivarlo a participar en clase. - Un jefe que mantiene una distancia social para marcar jerarquía al dar instrucciones. - Un amigo que reduce la distancia para pedir un favor con tono de confianza. - Un vendedor que regula su proximidad para no incomodar al cliente mientras le ofrece un producto. ¿Qué es la Kinésica? La kinésica es el estudio del lenguaje corporal, que incluye todos los movimientos y posturas del cuerpo, expresiones faciales, gestos, movimientos de manos, orientación corporal y contacto visual. Es una parte importante de la comunicación no verbal y juega un papel crucial en cómo se interpreta un mensaje. A menudo acompaña al lenguaje verbal para reforzar, contradecir o sustituir el contenido del mensaje. La kinésica permite comprender las emociones, intenciones y actitudes del emisor, incluso cuando no se emite palabra alguna. Por ejemplo, una sonrisa puede indicar amabilidad, mientras que cruzar los brazos puede sugerir una actitud defensiva. Importancia de la Kinésica - Refuerza el mensaje verbal con gestos, posturas y expresiones. - Facilita la interpretación de emociones como la alegría, tristeza, enojo o sorpresa. - Es clave en la comunicación intercultural, aunque puede variar según el contexto cultural. - Ayuda a mantener el interés del receptor y mejorar la claridad del mensaje. - Puede revelar intenciones verdaderas que el lenguaje verbal intenta ocultar.
 
                 </p>
                 <br>
-                <h1>Escena de la película “EL COLOR DEL PARAISO”</h1>
-                <p>Ejemplo de comunicación no verbal: Paralenguaje en base a la película
+                <h1>Escenas de la película “EL COLOR DEL PARAISO”</h1>
+                <h3>Henry</h3>
+                <p>
                 Escena: Mohamed y su abuela en la casa
                 En esta escena, Mohamed intenta seguir a sus hermanas hacia la escuela, pero su abuela se interpone físicamente, acercándose para impedir su partida. A través de la proxemia, se transmiten emociones y relaciones de poder:
                 Barrera física: La abuela se coloca frente a Mohamed, invadiendo su espacio personal para bloquear su camino.
@@ -688,7 +192,27 @@ También vimos que cosas como el tono de voz, los gestos, las miradas o la dista
                 La abuela ya no bloquea, sino que acompaña
                 La distancia física se reduce, simbolizando cesión emocional
                 Así, el espacio se convierte en lenguaje: de instrumento de control a puente de conexión. La película muestra que lo no verbal (posturas, silencios, distancia) puede comunicar más que las palabras.</p>
-                            </div>
+                <br>
+                <h3>Julian</h3>
+                <p>Escena: Mohamed y su padre en el taller de carpinteríaEn esta escena, el padre de Mohamed trabaja en su taller mientras el niño intenta acercarse para interactuar con él.
+                 La proxemia aquí refleja la frialdad y el rechazo emocional del padre hacia su hijo:
+                 Distancia social rígida: El padre mantiene una distancia física considerable (zona social, entre 1.2 y 3.6 metros), evitando cualquier acercamiento íntimo o personal. Esta separación transmite su falta de afecto y su negativa a establecer una conexión emocional con Mohamed.
+                 Orientación corporal evasiva: Aunque Mohamed intenta dirigirse hacia él, el padre gira su cuerpo hacia otra dirección, evitando el contacto visual y reforzando su actitud de indiferencia.
+                 Uso del espacio como barrera: Las herramientas y los muebles del taller actúan como obstáculos físicos que el padre utiliza inconscientemente para mantener a Mohamed a distancia, reforzando su mensaje no verbal de rechazo.
+                 Cambio proxémico clave:
+                 Más adelante, cuando el padre finalmente acepta llevar a Mohamed a la escuela, reduce ligeramente la distancia (entrando en la zona personal, alrededor de 1 metro), lo que sugiere un mínimo gesto de apertura, aunque aún sin calidez.
+                 Este pequeño ajuste en la proxemia comunica una tensión entre su deber paterno y su resistencia emocional.</p>
+                 <br>
+                 <h3>Santiago</h3>
+                 <p>Escena: Mohamed y el profesor en la escuela para niños ciegos
+                En esta escena, el profesor utiliza la proxemia de manera cálida y pedagógica para guiar a Mohamed en su adaptación al entorno escolar:
+                Proximidad protectora: El profesor se sitúa dentro de la zona personal (menos de 1.2 metros) e incluso en la zona íntima (alrededor de 45 cm) cuando le enseña a tocar objetos o a leer en Braille. Esta cercanía transmite seguridad y apoyo.
+                Contacto físico orientador: A diferencia del padre, el profesor usa el tacto de manera afectuosa y funcional, colocando las manos de Mohamed sobre los materiales educativos. Este contacto no es invasivo, sino guiado, reforzando su rol de facilitador.
+                Postura inclinada: El profesor se agacha o se inclina para estar al mismo nivel físico que Mohamed, eliminando jerarquías visuales y creando un espacio de confianza.
+                Contraste con otros personajes:Mientras el padre y la abuela usan la proxemia para controlar o aislar a Mohamed, el profesor la emplea para incluirlo. La reducción de la distancia aquí no es una imposición, sino una invitación a aprender y sentirse aceptado.
+                Así, la película muestra cómo la misma herramienta proxémica puede transmitir dominación o solidaridad, dependiendo de la intención comunicativa.</p>
+                </div>
+
         </div>
     </section>
     
@@ -717,7 +241,8 @@ También vimos que cosas como el tono de voz, los gestos, las miradas o la dista
 
                 </p>
                 <br>
-                <h1>Escena de la película “EL COLOR DEL PARAISO”</h1>
+                <h1>Escenas de la película “EL COLOR DEL PARAISO”</h1>
+                <h3>Henry</h3>
                 <p>Ejemplo de comunicación no verbal: Paralenguaje en base a la película
                 Escena: Mohamed y su abuela en la casa
                 En esta escena, Mohamed intenta seguir a sus hermanas hacia la escuela, pero su abuela se interpone físicamente, acercándose para impedir su partida. A través de la proxemia, se transmiten emociones y relaciones de poder:
@@ -728,6 +253,25 @@ También vimos que cosas como el tono de voz, los gestos, las miradas o la dista
                 La abuela ya no bloquea, sino que acompaña
                 La distancia física se reduce, simbolizando cesión emocional
                 Así, el espacio se convierte en lenguaje: de instrumento de control a puente de conexión. La película muestra que lo no verbal (posturas, silencios, distancia) puede comunicar más que las palabras.</p>
+                <br>
+                <h3>Julian</h3>
+                <p>Escena: Mohamed y su padre en el taller de carpinteríaEn esta escena, el padre de Mohamed trabaja en su taller mientras el niño intenta acercarse para interactuar con él.
+                 La proxemia aquí refleja la frialdad y el rechazo emocional del padre hacia su hijo:
+                 Distancia social rígida: El padre mantiene una distancia física considerable (zona social, entre 1.2 y 3.6 metros), evitando cualquier acercamiento íntimo o personal. Esta separación transmite su falta de afecto y su negativa a establecer una conexión emocional con Mohamed.
+                 Orientación corporal evasiva: Aunque Mohamed intenta dirigirse hacia él, el padre gira su cuerpo hacia otra dirección, evitando el contacto visual y reforzando su actitud de indiferencia.
+                 Uso del espacio como barrera: Las herramientas y los muebles del taller actúan como obstáculos físicos que el padre utiliza inconscientemente para mantener a Mohamed a distancia, reforzando su mensaje no verbal de rechazo.
+                 Cambio proxémico clave:
+                 Más adelante, cuando el padre finalmente acepta llevar a Mohamed a la escuela, reduce ligeramente la distancia (entrando en la zona personal, alrededor de 1 metro), lo que sugiere un mínimo gesto de apertura, aunque aún sin calidez.
+                 Este pequeño ajuste en la proxemia comunica una tensión entre su deber paterno y su resistencia emocional.</p>
+                 <br>
+                 <h3>Santiago</h3>
+                 <p>Escena: Mohamed y el profesor en la escuela para niños ciegos
+                En esta escena, el profesor utiliza la proxemia de manera cálida y pedagógica para guiar a Mohamed en su adaptación al entorno escolar:
+                Proximidad protectora: El profesor se sitúa dentro de la zona personal (menos de 1.2 metros) e incluso en la zona íntima (alrededor de 45 cm) cuando le enseña a tocar objetos o a leer en Braille. Esta cercanía transmite seguridad y apoyo.
+                Contacto físico orientador: A diferencia del padre, el profesor usa el tacto de manera afectuosa y funcional, colocando las manos de Mohamed sobre los materiales educativos. Este contacto no es invasivo, sino guiado, reforzando su rol de facilitador.
+                Postura inclinada: El profesor se agacha o se inclina para estar al mismo nivel físico que Mohamed, eliminando jerarquías visuales y creando un espacio de confianza.
+                Contraste con otros personajes:Mientras el padre y la abuela usan la proxemia para controlar o aislar a Mohamed, el profesor la emplea para incluirlo. La reducción de la distancia aquí no es una imposición, sino una invitación a aprender y sentirse aceptado.
+                Así, la película muestra cómo la misma herramienta proxémica puede transmitir dominación o solidaridad, dependiendo de la intención comunicativa.</p>
                             
             </div>
         </div>
@@ -739,116 +283,6 @@ También vimos que cosas como el tono de voz, los gestos, las miradas o la dista
             <p>Hecho por Ximena, Henry y Julian | © 2025 Nuestro Blog Dream</p>
         </div>
     </footer>
+    <script src="js/script.js"></script>
+</body>
     
-    <script>
-        // Carrusel de imágenes mejorado
-        let currentSlide = 0;
-        const slidesContainer = document.querySelector('.slides');
-        const slidesCount = document.querySelectorAll('.slide').length / 2; // Only count original slides
-        let slideInterval;
-        
-        function startSlider() {
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-        
-        function nextSlide() {
-            currentSlide++;
-            if (currentSlide >= slidesCount) {
-                slidesContainer.style.transition = 'none';
-                currentSlide = 0;
-                slidesContainer.style.transform = `translateX(0%)`;
-                slidesContainer.offsetHeight;
-                slidesContainer.style.transition = 'transform 1s ease-in-out';
-            } else {
-                updateSlider();
-            }
-        }
-        
-        function updateSlider() {
-            const offset = -currentSlide * (100 / slidesCount);
-            slidesContainer.style.transform = `translateX(${offset}%)`;
-        }
-        
-        // Función para mostrar secciones
-        function showSection(sectionId) {
-            // Ocultar todas las secciones
-            document.querySelectorAll('.about-section, .author-section, .main-content').forEach(section => {
-                section.style.display = 'none';
-            });
-            
-            // Mostrar/ocultar el carrusel según la sección
-            const headerSlider = document.getElementById('header-slider');
-            if (sectionId === 'home') {
-                headerSlider.style.display = 'block';
-                startSlider();
-            } else {
-                headerSlider.style.display = 'none';
-                clearInterval(slideInterval);
-            }
-            
-            // Mostrar la sección seleccionada
-            if (sectionId === 'home') {
-                document.getElementById('home-section').style.display = 'block';
-            } else if (sectionId === 'reflexiones') {
-                document.getElementById('reflexiones-section').style.display = 'block';
-            } else {
-                document.getElementById(sectionId + '-section').style.display = 'block';
-            }
-            
-            // Desplazamiento suave
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-            
-            return false;
-        }
-        
-        // Función para mostrar información de autor
-        function showAuthor(authorId) {
-            // Ocultar todas las secciones
-            document.querySelectorAll('.about-section, .author-section, .main-content').forEach(section => {
-                section.style.display = 'none';
-            });
-            
-            // Ocultar el carrusel
-            document.getElementById('header-slider').style.display = 'none';
-            clearInterval(slideInterval);
-            
-            // Mostrar la sección del autor seleccionado
-            document.getElementById(authorId + '-section').style.display = 'block';
-            
-            // Desplazamiento suave
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-            
-            return false;
-        }
-        
-        // Mostrar la sección de inicio por defecto
-        window.onload = function() {
-            document.getElementById('home-section').style.display = 'block';
-            startSlider();
-            
-            // Agregar efecto de aparición gradual
-            const elements = document.querySelectorAll('.post, .author');
-            elements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, 150 * index);
-            });
-        };
-        
-        // Inicializar elementos con opacidad 0 para la animación
-        document.addEventListener('DOMContentLoaded', () => {
-            const elements = document.querySelectorAll('.post, .author');
-            elements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            });
-        });
-    </script>
